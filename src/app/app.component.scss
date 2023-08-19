@@ -1,0 +1,190 @@
+th {
+    background-color: #e2f4ff;
+}
+
+th,
+td {
+    padding: 1em;
+    border-bottom: 2px solid white;
+}
+
+.data_container {
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &_title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        &_action {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+
+            &_dropdown {
+                position: relative;
+                background-color: #fff;
+                box-shadow: 0 0 5px #8f8f8f;
+                padding: 8px 10px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                column-gap: 0.5rem;
+                color: #525252;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &-pre_icon,
+                &-post_icon {
+                    font-size: 20px;
+                }
+
+                &_text {
+                }
+            }
+
+            &_download {
+                width: 40px;
+                height: 40px;
+                background-color: #fff;
+                box-shadow: 0 0 5px #8f8f8f;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                color: #525252;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__filter {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-column-gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #8f8f8f;
+        background-color: #fff;
+
+        &_item {
+            &_input {
+                width: 100%;
+            }
+        }
+    }
+
+    .table__container {
+        overflow: auto;
+    }
+
+    .data__table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 1rem;
+
+        &_header {
+            display: flex;
+            align-items: center;
+            column-gap: 0.5rem;
+
+            &-icon {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .chart__container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #8f8f8f;
+        padding: 20px;
+        margin-top: 1.5rem;
+
+        &_title {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .table__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &_select {
+            display: flex;
+            align-items: baseline;
+            column-gap: 1rem;
+
+            &_text {
+                color: #525252;
+                font-size: 14px;
+            }
+        }
+
+        &_pagination {
+            display: flex;
+            align-items: center;
+            column-gap: 0.5rem;
+
+            &_icons {
+                height: 28px;
+                width: 28px;
+                border-radius: 50%;
+                background-color: #0000000d;
+                display: grid;
+                place-items: center;
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #2ea9ff;
+                    color: #fff;
+                }
+
+                span {
+                    font-size: 20px;
+                }
+            }
+
+            &_count_list {
+                display: flex;
+                align-items: center;
+                list-style-type: none;
+                background-color: #0000000d;
+                margin: 0;
+                padding: 0;
+                border-radius: 20px;
+
+                &_item {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    display: grid;
+                    place-items: center;
+                    transition: all 0.3s ease-in;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #b1deff;
+                    }
+
+                    &:first-child {
+                        background-color: #2ea9ff;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

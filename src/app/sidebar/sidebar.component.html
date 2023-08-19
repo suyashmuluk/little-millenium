@@ -1,0 +1,15 @@
+<aside class="sidebar" id="sidebar">
+    <ul class="sidebar__list">
+        <ng-container *ngFor="let el of sidebar_item_list">
+            <li class="sidebar__list_item" [ngClass]="el.title === 'Reports' ? 'sidebar__list_item-active' : ''">
+                <div class="sidebar__list_item_info">
+                    <span class="material-icons sidebar__list_item_info-icon">
+                        {{el.icon}}
+                    </span>
+                    <span class="sidebar__list_item_info_text" *ngIf="show_title">{{el.title}}</span>
+                </div>
+                <span class="material-icons sidebar__list_item-icon">expand_more</span>
+            </li>
+        </ng-container>
+    </ul>
+</aside>

@@ -1,0 +1,119 @@
+@mixin for_size($size) {
+    @if $size == "phone" {
+        @media only screen and (max-width: 420px) and (min-width: 320px) {
+            @content;
+        }
+    } @else if $size == "ipad" {
+        @media only screen and (max-width: 991px) and (min-width: 768px) {
+            @content;
+        }
+    } @else if $size == "ipad-to-phone" {
+        @media only screen and (max-width: 991px) and (min-width: 320px) {
+            @content;
+        }
+    }
+}
+
+.nav {
+    background-color: #fff;
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 80px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px #8f8f8f;
+    z-index: 2;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        &_menu {
+            font-size: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &_logo {
+            background: url(../../assets/child-logo.png) center/cover no-repeat;
+            height: 70px;
+            width: 100px;
+        }
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        &_notification {
+            position: relative;
+            width: 26px;
+            height: 26px;
+
+            &-icon {
+                color: #adadad;
+                font-size: 26px;
+            }
+
+            &_badge {
+                position: absolute;
+                top: 0;
+                right: 2px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: red;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &_profile {
+            display: flex;
+            align-items: center;
+            column-gap: 0.5rem;
+
+            &-icon {
+                font-size: 48px;
+                color: #adadad;
+            }
+
+            &_info {
+                &_title {
+                    font-size: 14px;
+                    color: #2b9eaa;
+                }
+
+                &_subtitle {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1rem;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &_text {
+                        color: #adadad;
+                    }
+
+                    &-icon {
+                        font-size: 18px;
+                        color: #adadad;
+                    }
+                }
+
+                @include for_size(phone) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

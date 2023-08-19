@@ -1,0 +1,85 @@
+@mixin for_size($size) {
+    @if $size == "phone" {
+        @media only screen and (max-width: 420px) and (min-width: 320px) {
+            @content;
+        }
+    } @else if $size == "ipad" {
+        @media only screen and (max-width: 991px) and (min-width: 768px) {
+            @content;
+        }
+    } @else if $size == "ipad-to-phone" {
+        @media only screen and (max-width: 991px) and (min-width: 320px) {
+            @content;
+        }
+    }
+}
+
+.sidebar {
+    position: fixed;
+    inset: 80px auto 0 0;
+    width: 250px;
+    background-color: #007fdd;
+    padding: 20px 12px;
+    z-index: 2;
+    transition-property: top,bottom,width;
+    transition-duration: .2s,.2s,.35s;
+    transition-timing-function: linear,linear,ease;
+    -webkit-overflow-scrolling: touch;
+
+    @include for_size(ipad-to-phone) {
+        // position: absolute;
+        inset: 80px auto 0 -250px;
+    }
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        &_item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 8px;
+            border-radius: 5px;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+
+            &-active {
+                background-color: #fff !important;
+                color: #525252;
+                font-weight: 600;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: #2ea9ff;
+            }
+
+            &_info {
+                display: flex;
+                align-items: center;
+                column-gap: 8px;
+
+                &-icon {
+                    font-size: 20px;
+                }
+
+                &_text {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.collapsed_sidebar {
+    width: 80px;
+
+    @include for_size(ipad-to-phone) {
+        position: absolute;
+        width: 250px;
+        inset: 80px auto 0 0;
+    }
+}

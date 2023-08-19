@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f7f7;
+}
+
+@mixin for_size($size) {
+    @if $size == "phone" {
+        @media only screen and (max-width: 420px) and (min-width: 320px) {
+            @content;
+        }
+    } @else if $size == "ipad" {
+        @media only screen and (max-width: 991px) and (min-width: 768px) {
+            @content;
+        }
+    } @else if $size == "ipad-to-phone" {
+        @media only screen and (max-width: 991px) and (min-width: 320px) {
+            @content;
+        }
+    }
+}
+
+.main_panel {
+    position: relative;
+    float: right;
+    width: calc(100% - 250px);
+    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+    transition-property: top, bottom, width;
+    transition-duration: 0.2s, 0.2s, 0.35s;
+    transition-timing-function: linear, linear, ease;
+    -webkit-overflow-scrolling: touch;
+
+    @include for_size(ipad-to-phone) {
+        width: 100%;
+    }
+}
+
+.main_content {
+    margin-top: 80px;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+@media only screen and (min-width: 992px) {
+    .expanded_panel {
+        width: calc(100% - 80px);
+    }
+}
